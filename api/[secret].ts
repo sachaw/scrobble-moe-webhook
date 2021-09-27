@@ -23,7 +23,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
         const mutation = gql`
           mutation scrobble($scrobbleWebhookInput: WebhookInput!) {
-            scrobble(webhookInput: $scrobbleWebhookInput)
+            scrobble(webhookInput: $scrobbleWebhookInput) {
+              success
+              reason
+            }
           }
         `;
         const variables = {
@@ -31,7 +34,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
             secret,
             plexId: payload.Account.id,
             serverUUID: payload.Server.uuid,
-            providerMediaId: providerMediaId.groups.id,
+            providerMediaId: parseInt(providerMediaId?.groups.id),
             episode: payload.Metadata.index,
           },
         };
