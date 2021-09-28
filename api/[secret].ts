@@ -16,14 +16,14 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       const payload: IplexWebhook = JSON.parse(fields.payload);
       const providerMediaId = payload.Metadata.guid.match(
         /me\.sachaw\.agents\.anilist:\/\/(?<id>.*)\/[0-9]\//
-      );
+      ).groups.id;
 
-      if (payload.event === "media.scrobble" && providerMediaId.groups.id) {
+      if (payload.event === "media.scrobble" && providerMediaId) {
         console.log(
           `Incomming scrobble - user: ${payload.Account.id} Provider ID: ${providerMediaId}`
         );
 
-        const graphQLClient = new GraphQLClient(process.env.FORWARD_URL);
+        const graphQLClient = new GraphQLClient(process.env.GQL_URL);
 
         const mutation = gql`
           mutation scrobble($scrobbleWebhookInput: WebhookInput!) {
@@ -36,14 +36,14 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         const variables = {
           scrobbleWebhookInput: {
             secret,
-            plexId: payload.Account.id,
+            username: payload.Account.title,
             serverUUID: payload.Server.uuid,
-            providerMediaId: parseInt(providerMediaId?.groups.id),
+            providerMediaId: parseInt(providerMediaId),
             episode: payload.Metadata.index,
           },
         };
         try {
-          await graphQLClient.request(mutation, variables);
+          console.log(await graphQLClient.request(mutation, variables));
         } catch (e) {
           console.log(e);
         }
