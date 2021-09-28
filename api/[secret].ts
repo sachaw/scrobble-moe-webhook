@@ -19,6 +19,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       );
 
       if (payload.event === "media.scrobble" && providerMediaId.groups.id) {
+        console.log(
+          `Incomming scrobble - user: ${payload.Account.id} Provider ID: ${providerMediaId}`
+        );
+
         const graphQLClient = new GraphQLClient(process.env.FORWARD_URL);
 
         const mutation = gql`
@@ -40,7 +44,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         };
         try {
           await graphQLClient.request(mutation, variables);
-        } catch (_) {}
+        } catch (e) {
+          console.log(e);
+        }
       }
     }
   }
