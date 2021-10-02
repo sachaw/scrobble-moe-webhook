@@ -1,29 +1,39 @@
-import asyncBusboy from 'async-busboy';
-import { config } from 'dotenv';
-import { gql, GraphQLClient } from 'graphql-request';
+import asyncBusboy from "async-busboy";
+import bodyParser from "body-parser";
+import { config } from "dotenv";
+import { gql, GraphQLClient } from "graphql-request";
 
-import { VercelRequest, VercelResponse } from '@vercel/node';
+import { App } from "@tinyhttp/app";
+import { logger } from "@tinyhttp/logger";
 
-import { IplexWebhook } from '../types/webhook';
+import { IplexWebhook } from "./types/webhook";
 
-export default async function (req: VercelRequest, res: VercelResponse) {
-  config();
-  const { secret } = req.query;
+config();
 
-  if (req.method === "POST") {
+const app = new App();
+
+void app
+  .use(logger())
+  .use(bodyParser.urlencoded({ extended: false }))
+  .post("/:secret", async (req, res) => {
+    const { secret } = req.params;
     const { fields } = await asyncBusboy(req);
+
     if (fields.payload) {
+      console.log(fields.payload);
+
       const payload: IplexWebhook = JSON.parse(fields.payload);
-      const providerMediaId = payload.Metadata.guid.match(
+      const match = payload.Metadata.guid.match(
         /me\.sachaw\.agents\.anilist:\/\/(?<id>.*)\/[0-9]\//
-      ).groups.id;
+      )?.groups;
+      const providerMediaId = match?.id ?? "";
 
       if (payload.event === "media.scrobble" && providerMediaId) {
         console.log(
-          `Incomming scrobble - user: ${payload.Account.id} Provider ID: ${providerMediaId}`
+          `Incomming scrobble - user: ${payload.Account.id} Provider ID: ${providerMediaId} Episode: ${payload.Metadata.index}`
         );
 
-        const graphQLClient = new GraphQLClient(process.env.GQL_URL);
+        const graphQLClient = new GraphQLClient(process.env.GQL_URL ?? "");
 
         const mutation = gql`
           mutation scrobble($scrobbleWebhookInput: WebhookInput!) {
@@ -49,7 +59,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         }
       }
     }
-  }
 
-  res.send(null);
-}
+    res.send(null);
+  })
+  .listen(parseInt(process.env.PORT ?? "5000"), () =>
+    console.log(`🚀 Server ready`)
+  );
