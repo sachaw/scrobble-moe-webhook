@@ -52,7 +52,7 @@ void app
           };
 
           try {
-            console.log(await graphQLClient.request(mutation, variables));
+            await graphQLClient.request(mutation, variables);
           } catch (e) {
             console.log(e);
           }
