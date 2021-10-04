@@ -8,6 +8,7 @@ specifiers:
   dotenv: ^10.0.0
   graphql: ^15.6.0
   graphql-request: ^3.5.0
+  header-range-parser: ^1.0.0
   milliparsec: ^2.2.0
   typescript: ^4.4.3
 
@@ -19,6 +20,7 @@ dependencies:
   dotenv: 10.0.0
   graphql: 15.6.0
   graphql-request: 3.5.0_graphql@15.6.0
+  header-range-parser: 1.0.0
   milliparsec: 2.2.0
   typescript: 4.4.3
 
@@ -270,6 +272,11 @@ packages:
   /graphql/15.6.0:
     resolution: {integrity: sha512-WJR872Zlc9hckiEPhXgyUftXH48jp2EjO5tgBBOyNMRJZ9fviL2mJBD6CAysk6N5S0r9BTs09Qk39nnJBkvOXQ==}
     engines: {node: '>= 10.x'}
+    dev: false
+
+  /header-range-parser/1.0.0:
+    resolution: {integrity: sha512-QqUyYlYdAVqsd26xqPJwIUBrZe0z/iWeOcQnOxtAik1/so5wpLl72O5qL9CwSucsMIMeptu1x4OUSSU2pJauiA==}
+    engines: {node: '>= 12.20'}
     dev: false
 
   /http-status-emojis/2.2.0:

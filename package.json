@@ -14,6 +14,7 @@
     "dotenv": "^10.0.0",
     "graphql": "^15.6.0",
     "graphql-request": "^3.5.0",
+    "header-range-parser": "^1.0.0",
     "milliparsec": "^2.2.0",
     "typescript": "^4.4.3"
   }
