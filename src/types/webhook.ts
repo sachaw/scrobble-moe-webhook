@@ -20,7 +20,7 @@ export interface IplexWebhookMetadata {
   librarySectionType: string;
   ratingKey: string;
   key: string;
-  guid: string;
+  guid?: string;
   studio?: string;
   type: string;
   title: string;
