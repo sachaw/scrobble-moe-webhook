@@ -104,5 +104,5 @@ export interface IplexWebhook {
   Account: IplexWebhookAccount;
   Server: IplexWebhookServer;
   Player: IplexWebhookPlayer;
-  Metadata: IplexWebhookMetadata;
+  Metadata?: IplexWebhookMetadata;
 }

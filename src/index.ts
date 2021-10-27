@@ -23,6 +23,9 @@ void app
     form.parse(req, async (err, fields) => {
       if (fields.payload) {
         const payload: IplexWebhook = JSON.parse(fields.payload);
+        if (!payload.Metadata) {
+          return;
+        }
         const match = payload.Metadata.guid?.match(
           /me\.sachaw\.agents\.anilist:\/\/(?<id>.*)\/[0-9]\//
         );
@@ -62,7 +65,7 @@ void app
             logger.log(e, LogLevel.Error, {
               event: payload.event,
               providerMediaId,
-              episode: payload.Metadata.index?.toString() ?? "",
+              episode: payload.Metadata?.index?.toString() ?? "",
               user: payload.Account.id,
               username: payload.Account.title,
               owner: payload.owner,
