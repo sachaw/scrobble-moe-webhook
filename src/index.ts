@@ -1,12 +1,12 @@
-import { config } from 'dotenv';
-import { gql, GraphQLClient } from 'graphql-request';
-import multiparty from 'multiparty';
+import { config } from "dotenv";
+import { gql, GraphQLClient } from "graphql-request";
+import multiparty from "multiparty";
 
-import { Logtail } from '@logtail/node';
-import { LogLevel } from '@logtail/types';
-import { App } from '@tinyhttp/app';
+import { Logtail } from "@logtail/node";
+import { LogLevel } from "@logtail/types";
+import { App } from "@tinyhttp/app";
 
-import { IplexWebhook } from './types/webhook';
+import { IplexWebhook } from "./types/webhook";
 
 config();
 
