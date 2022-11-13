@@ -8,9 +8,9 @@
     "dev": "concurrently -k \"tsc -w\" \"nodemon ./dist/index.js\""
   },
   "dependencies": {
-    "@logtail/node": "^0.1.12",
+    "@logtail/node": "^0.1.14",
     "@logtail/types": "^0.1.12",
-    "@tinyhttp/app": "^2.0.23",
+    "@tinyhttp/app": "^2.0.25",
     "@types/multiparty": "^0.0.33",
     "dotenv": "^16.0.3",
     "graphql": "^16.6.0",
@@ -21,7 +21,7 @@
     "typescript": "^4.8.4"
   },
   "devDependencies": {
-    "concurrently": "^7.4.0",
+    "concurrently": "^7.5.0",
     "nodemon": "^2.0.20"
   }
 }
