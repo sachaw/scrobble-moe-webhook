@@ -1,18 +1,12 @@
 import { config } from "dotenv";
 import { gql, GraphQLClient } from "graphql-request";
 import multiparty from "multiparty";
-
-import { Logtail } from "@logtail/node";
-import { LogLevel } from "@logtail/types";
 import { App } from "@tinyhttp/app";
-
 import { IplexWebhook } from "./types/webhook";
 
 config();
 
 const app = new App();
-
-const logger = new Logtail(process.env.LOGTAIL_TOKEN ?? "");
 
 void app
   .post("/:secret", async (req, res) => {
@@ -30,15 +24,6 @@ void app
           /me\.sachaw\.agents\.anilist:\/\/(?<id>.*)\/[0-9]\//
         );
         const providerMediaId = match?.groups?.id ?? "";
-
-        logger.log(`Incomming webhook`, LogLevel.Debug, {
-          event: payload.event,
-          providerMediaId,
-          episode: payload.Metadata.index?.toString() ?? "",
-          user: payload.Account.id,
-          username: payload.Account.title,
-          owner: payload.owner,
-        });
 
         if (payload.event === "media.scrobble" && providerMediaId) {
           const graphQLClient = new GraphQLClient(process.env.GQL_URL ?? "");
@@ -62,7 +47,7 @@ void app
           };
 
           await graphQLClient.request(mutation, variables).catch((e) => {
-            logger.log(e, LogLevel.Error, {
+            console.error(e, {
               event: payload.event,
               providerMediaId,
               episode: payload.Metadata?.index?.toString() ?? "",
