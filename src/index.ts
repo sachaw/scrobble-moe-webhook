@@ -1,10 +1,19 @@
 import { config } from "dotenv";
-import { gql, GraphQLClient } from "graphql-request";
 import multiparty from "multiparty";
 import { App } from "@tinyhttp/app";
-import { IplexWebhook } from "./types/webhook.js";
+import { createConnectTransport } from "@bufbuild/connect-node";
+import { createPromiseClient } from "@bufbuild/connect";
+import { WebhookService } from "@buf/scrobble-moe_protobufs.bufbuild_connect-es/moe/scrobble/webhook/v1/webhook_service_connect.js";
+
+import { PlexWebhook } from "./types/webhook.js";
 
 config();
+
+const transport = createConnectTransport({
+  httpVersion: "2",
+  baseUrl: process.env.RPC_URL ?? "localhost:4000",
+});
+const client = createPromiseClient(WebhookService, transport);
 
 const app = new App();
 
@@ -16,7 +25,7 @@ void app
 
     form.parse(req, async (err, fields) => {
       if (fields.payload) {
-        const payload: IplexWebhook = JSON.parse(fields.payload);
+        const payload: PlexWebhook = JSON.parse(fields.payload);
         if (!payload.Metadata) {
           return;
         }
@@ -26,35 +35,12 @@ void app
         const providerMediaId = match?.groups?.id ?? "";
 
         if (payload.event === "media.scrobble" && providerMediaId) {
-          const graphQLClient = new GraphQLClient(process.env.GQL_URL ?? "");
-
-          const mutation = gql`
-            mutation scrobble($scrobbleWebhookInput: WebhookInput!) {
-              scrobble(webhookInput: $scrobbleWebhookInput) {
-                success
-                reason
-              }
-            }
-          `;
-          const variables = {
-            scrobbleWebhookInput: {
-              secret,
-              username: payload.Account.title,
-              serverUUID: payload.Server.uuid,
-              providerMediaId: parseInt(providerMediaId),
-              episode: payload.Metadata.index,
-            },
-          };
-
-          await graphQLClient.request(mutation, variables).catch((e) => {
-            console.error(e, {
-              event: payload.event,
-              providerMediaId,
-              episode: payload.Metadata?.index?.toString() ?? "",
-              user: payload.Account.id,
-              username: payload.Account.title,
-              owner: payload.owner,
-            });
+          await client.scrobble({
+            secret,
+            username: payload.Account.title,
+            serverUuid: payload.Server.uuid,
+            providerMediaId: parseInt(providerMediaId),
+            episode: payload.Metadata.index,
           });
         }
       }

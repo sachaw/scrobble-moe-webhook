@@ -1,26 +1,29 @@
 {
-	"name": "scrobble-moe-webhook",
-	"type": "module",
-	"license": "GPL-3.0-only",
-	"scripts": {
-		"build": "tsc",
-		"start": "node dist/index.js",
-		"dev": "concurrently -k \"tsc -w\" \"nodemon ./dist/index.js\""
-	},
-	"dependencies": {
-		"@tinyhttp/app": "^2.0.32",
-		"@types/multiparty": "^0.0.33",
-		"dotenv": "^16.0.3",
-		"graphql": "^16.6.0",
-		"graphql-request": "^6.0.0",
-		"header-range-parser": "^1.1.3",
-		"milliparsec": "^2.3.0",
-		"multiparty": "^4.2.3",
-		"typescript": "^5.0.4"
-	},
-	"devDependencies": {
-		"concurrently": "^8.0.1",
-		"nodemon": "^2.0.22",
-		"rome": "^12.0.0"
-	}
+  "name": "scrobble-moe-webhook",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "license": "GPL-3.0-only",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@buf/scrobble-moe_protobufs.bufbuild_connect-es": "0.9.0-20230519031254-2ad210ab4ae6.1",
+    "@bufbuild/connect": "^0.9.0",
+    "@bufbuild/connect-node": "^0.9.0",
+    "@bufbuild/protobuf": "^1.2.0",
+    "@tinyhttp/app": "^2.0.33",
+    "@types/multiparty": "^0.0.33",
+    "dotenv": "^16.0.3",
+    "header-range-parser": "^1.1.3",
+    "milliparsec": "^2.3.0",
+    "multiparty": "^4.2.3",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "rome": "^12.1.2",
+    "tsx": "^3.12.7"
+  }
 }

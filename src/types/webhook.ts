@@ -1,22 +1,22 @@
-export interface IplexWebhookAccount {
+export interface PlexWebhookAccount {
   id: number;
   thumb: string;
   title: string;
 }
 
-export interface IplexWebhookServer {
+export interface PlexWebhookServer {
   title: string;
   uuid: string;
 }
 
-export interface IplexWebhookPlayer {
+export interface PlexWebhookPlayer {
   local: boolean;
   publicAddress: string;
   title: string;
   uuid: string;
 }
 
-export interface IplexWebhookMetadata {
+export interface PlexWebhookMetadata {
   librarySectionType: string;
   ratingKey: string;
   key: string;
@@ -35,10 +35,10 @@ export interface IplexWebhookMetadata {
   originallyAvailableAt?: string;
   addedAt: number;
   updatedAt: number;
-  Genre?: IplexWebhookGenre[];
-  Director?: IplexWebhookDirector[];
-  Country?: IplexWebhookCountry[];
-  Role?: IplexWebhookRole[];
+  Genre?: PlexWebhookGenre[];
+  Director?: PlexWebhookDirector[];
+  Country?: PlexWebhookCountry[];
+  Role?: PlexWebhookRole[];
   skipParent?: boolean;
   parentRatingKey?: string;
   grandparentRatingKey?: string;
@@ -63,26 +63,26 @@ export interface IplexWebhookMetadata {
   grandparentArt?: string;
 }
 
-export interface IplexWebhookGenre {
+export interface PlexWebhookGenre {
   id: number;
   filter: string;
   tag: string;
   count: number;
 }
-export interface IplexWebhookDirector {
+export interface PlexWebhookDirector {
   id: number;
   filter: string;
   tag: string;
 }
 
-export interface IplexWebhookCountry {
+export interface PlexWebhookCountry {
   id: number;
   filter: string;
   tag: string;
   count: number;
 }
 
-export interface IplexWebhookRole {
+export interface PlexWebhookRole {
   id: number;
   filter: string;
   tag: string;
@@ -91,7 +91,7 @@ export interface IplexWebhookRole {
   thumb: string;
 }
 
-export interface IplexWebhook {
+export interface PlexWebhook {
   event:
     | "media.play"
     | "media.pause"
@@ -101,8 +101,8 @@ export interface IplexWebhook {
     | "media.stop";
   user: boolean;
   owner: boolean;
-  Account: IplexWebhookAccount;
-  Server: IplexWebhookServer;
-  Player: IplexWebhookPlayer;
-  Metadata?: IplexWebhookMetadata;
+  Account: PlexWebhookAccount;
+  Server: PlexWebhookServer;
+  Player: PlexWebhookPlayer;
+  Metadata?: PlexWebhookMetadata;
 }
