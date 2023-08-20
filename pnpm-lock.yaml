@@ -1,27 +1,31 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@buf/scrobble-moe_protobufs.bufbuild_connect-es':
-    specifier: 0.9.0-20230519031254-2ad210ab4ae6.1
-    version: 0.9.0-20230519031254-2ad210ab4ae6.1(@bufbuild/connect@0.9.0)(@bufbuild/protobuf@1.2.0)
+    specifier: 0.13.0-20230521103420-474f6950c9db.1
+    version: 0.13.0-20230521103420-474f6950c9db.1(@bufbuild/connect@0.13.0)(@bufbuild/protobuf@1.3.0)
   '@bufbuild/connect':
-    specifier: ^0.9.0
-    version: 0.9.0(@bufbuild/protobuf@1.2.0)
+    specifier: ^0.13.0
+    version: 0.13.0(@bufbuild/protobuf@1.3.0)
   '@bufbuild/connect-node':
-    specifier: ^0.9.0
-    version: 0.9.0(@bufbuild/protobuf@1.2.0)
+    specifier: ^0.13.0
+    version: 0.13.0(@bufbuild/protobuf@1.3.0)
   '@bufbuild/protobuf':
-    specifier: ^1.2.0
-    version: 1.2.0
+    specifier: ^1.3.0
+    version: 1.3.0
   '@tinyhttp/app':
-    specifier: ^2.0.33
-    version: 2.0.33
+    specifier: ^2.1.4
+    version: 2.1.4
   '@types/multiparty':
     specifier: ^0.0.33
     version: 0.0.33
   dotenv:
-    specifier: ^16.0.3
-    version: 16.0.3
+    specifier: ^16.3.1
+    version: 16.3.1
   header-range-parser:
     specifier: ^1.1.3
     version: 1.1.3
@@ -32,59 +36,59 @@ dependencies:
     specifier: ^4.2.3
     version: 4.2.3
   typescript:
-    specifier: ^5.0.4
-    version: 5.0.4
+    specifier: ^5.1.6
+    version: 5.1.6
 
 devDependencies:
   rome:
-    specifier: ^12.1.2
-    version: 12.1.2
+    specifier: ^12.1.3
+    version: 12.1.3
   tsx:
     specifier: ^3.12.7
     version: 3.12.7
 
 packages:
 
-  /@buf/scrobble-moe_protobufs.bufbuild_connect-es@0.9.0-20230519031254-2ad210ab4ae6.1(@bufbuild/connect@0.9.0)(@bufbuild/protobuf@1.2.0):
-    resolution: {registry: https://buf.build/gen/npm/v1/, tarball: https://buf.build/gen/npm/v1/@buf/scrobble-moe_protobufs.bufbuild_connect-es/-/scrobble-moe_protobufs.bufbuild_connect-es-0.9.0-20230519031254-2ad210ab4ae6.1.tgz}
+  /@buf/scrobble-moe_protobufs.bufbuild_connect-es@0.13.0-20230521103420-474f6950c9db.1(@bufbuild/connect@0.13.0)(@bufbuild/protobuf@1.3.0):
+    resolution: {registry: https://buf.build/gen/npm/v1, tarball: https://buf.build/gen/npm/v1/@buf/scrobble-moe_protobufs.bufbuild_connect-es/-/scrobble-moe_protobufs.bufbuild_connect-es-0.13.0-20230521103420-474f6950c9db.1.tgz}
     peerDependencies:
-      '@bufbuild/connect': ^0.9.0
+      '@bufbuild/connect': ^0.13.0
     dependencies:
-      '@buf/scrobble-moe_protobufs.bufbuild_es': 1.2.0-20230519031254-2ad210ab4ae6.1(@bufbuild/protobuf@1.2.0)
-      '@bufbuild/connect': 0.9.0(@bufbuild/protobuf@1.2.0)
+      '@buf/scrobble-moe_protobufs.bufbuild_es': 1.3.0-20230521103420-474f6950c9db.1(@bufbuild/protobuf@1.3.0)
+      '@bufbuild/connect': 0.13.0(@bufbuild/protobuf@1.3.0)
     transitivePeerDependencies:
       - '@bufbuild/protobuf'
     dev: false
 
-  /@buf/scrobble-moe_protobufs.bufbuild_es@1.2.0-20230519031254-2ad210ab4ae6.1(@bufbuild/protobuf@1.2.0):
-    resolution: {registry: https://buf.build/gen/npm/v1/, tarball: https://buf.build/gen/npm/v1/@buf/scrobble-moe_protobufs.bufbuild_es/-/scrobble-moe_protobufs.bufbuild_es-1.2.0-20230519031254-2ad210ab4ae6.1.tgz}
+  /@buf/scrobble-moe_protobufs.bufbuild_es@1.3.0-20230521103420-474f6950c9db.1(@bufbuild/protobuf@1.3.0):
+    resolution: {registry: https://buf.build/gen/npm/v1, tarball: https://buf.build/gen/npm/v1/@buf/scrobble-moe_protobufs.bufbuild_es/-/scrobble-moe_protobufs.bufbuild_es-1.3.0-20230521103420-474f6950c9db.1.tgz}
     peerDependencies:
-      '@bufbuild/protobuf': ^1.2.0
+      '@bufbuild/protobuf': ^1.3.0
     dependencies:
-      '@bufbuild/protobuf': 1.2.0
+      '@bufbuild/protobuf': 1.3.0
     dev: false
 
-  /@bufbuild/connect-node@0.9.0(@bufbuild/protobuf@1.2.0):
-    resolution: {integrity: sha512-16AqFK+6/VMUceRpQPhJLSuFOtGFnynYp+CDoTg5h/36x8K6poUu3EW1N6yQf/s0pA4ks6furZn2l+auKadmzg==}
+  /@bufbuild/connect-node@0.13.0(@bufbuild/protobuf@1.3.0):
+    resolution: {integrity: sha512-l9tYVWTD9qdVr3PD8iTLmJZoWQY4bYl4UXIyKqvNuqoaAm3pZZvrQXrz0ptS5NRWTVUKPV9DZp6Wbbch5/u55Q==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
-      '@bufbuild/protobuf': ^1.2.0
+      '@bufbuild/protobuf': ^1.2.1
     dependencies:
-      '@bufbuild/connect': 0.9.0(@bufbuild/protobuf@1.2.0)
-      '@bufbuild/protobuf': 1.2.0
+      '@bufbuild/connect': 0.13.0(@bufbuild/protobuf@1.3.0)
+      '@bufbuild/protobuf': 1.3.0
       headers-polyfill: 3.1.2
     dev: false
 
-  /@bufbuild/connect@0.9.0(@bufbuild/protobuf@1.2.0):
-    resolution: {integrity: sha512-UGOapHlbdbXW9Os08plEuR2k3ZwFWni3BnYVSEPITDTjgEqTagbm6lNWurXM53FDPvueSYYTTJF3Rivhp03xbQ==}
+  /@bufbuild/connect@0.13.0(@bufbuild/protobuf@1.3.0):
+    resolution: {integrity: sha512-eZSMbVLyUFtXiZNORgCEvv580xKZeYQdMOWj2i/nxOcpXQcrEzTMTA7SZzWv4k4gveWCOSRoWmYDeOhfWXJv0g==}
     peerDependencies:
-      '@bufbuild/protobuf': ^1.2.0
+      '@bufbuild/protobuf': ^1.2.1
     dependencies:
-      '@bufbuild/protobuf': 1.2.0
+      '@bufbuild/protobuf': 1.3.0
     dev: false
 
-  /@bufbuild/protobuf@1.2.0:
-    resolution: {integrity: sha512-MBVuQMOBHxgGnZ9XCUIi8WOy5O/T4ma3TduCRhRvndv3UDbG9cHgd8h6nOYSGyBYPEvXf1z9nTwhp8mVIDbq2g==}
+  /@bufbuild/protobuf@1.3.0:
+    resolution: {integrity: sha512-G372ods0pLt46yxVRsnP/e2btVPuuzArcMPFpIDeIwiGPuuglEs9y75iG0HMvZgncsj5TvbYRWqbVyOe3PLCWQ==}
     dev: false
 
   /@esbuild-kit/cjs-loader@2.4.2:
@@ -306,164 +310,164 @@ packages:
     dev: true
     optional: true
 
-  /@rometools/cli-darwin-arm64@12.1.2:
-    resolution: {integrity: sha512-9QxtAwNyX9n7ysxo+9qWczl70I1opulmX7LFNsRJKS9qqyTNc5K++btnNK07vWAIeQsMx4QYwr7241thuBMlFw==}
+  /@rometools/cli-darwin-arm64@12.1.3:
+    resolution: {integrity: sha512-AmFTUDYjBuEGQp/Wwps+2cqUr+qhR7gyXAUnkL5psCuNCz3807TrUq/ecOoct5MIavGJTH6R4aaSL6+f+VlBEg==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rometools/cli-darwin-x64@12.1.2:
-    resolution: {integrity: sha512-w28NkGYK/rSmQU2WkNzw1h7ec8IR5a7LzYwPHDvG2ogY5sTcygkg0TGKOF/MHUvixU6EBPrFobua2gPhpr/m5A==}
+  /@rometools/cli-darwin-x64@12.1.3:
+    resolution: {integrity: sha512-k8MbWna8q4LRlb005N2X+JS1UQ+s3ZLBBvwk4fP8TBxlAJXUz17jLLu/Fi+7DTTEmMhM84TWj4FDKW+rNar28g==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rometools/cli-linux-arm64@12.1.2:
-    resolution: {integrity: sha512-7BPGqPtnJy1O8B/ucJ5Vg+p6EUvJJ9DazrT1UEdVR/4inPqAVac9PIZDjjHXyMrt/3IngnetPyn5EXNTAqpJVw==}
+  /@rometools/cli-linux-arm64@12.1.3:
+    resolution: {integrity: sha512-X/uLhJ2/FNA3nu5TiyeNPqiD3OZoFfNfRvw6a3ut0jEREPvEn72NI7WPijH/gxSz55znfQ7UQ6iM4DZumUknJg==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rometools/cli-linux-x64@12.1.2:
-    resolution: {integrity: sha512-qH2iJKPLp34D0GFK1gLolHGkTA8q2vGKh2Ae1AwoTh87g0mXyyeQf4mAtxJtf4/ydMgjEkAZdEwyaevbTX8gnQ==}
+  /@rometools/cli-linux-x64@12.1.3:
+    resolution: {integrity: sha512-csP17q1eWiUXx9z6Jr/JJPibkplyKIwiWPYNzvPCGE8pHlKhwZj3YHRuu7Dm/4EOqx0XFIuqqWZUYm9bkIC8xg==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rometools/cli-win32-arm64@12.1.2:
-    resolution: {integrity: sha512-iIdqss2R8bni7C7isA9OLBj1UAA3MeKfca0aHNZr+2gSRdiSxO/47j6s3Tpebso99xsJBAFdWBOruG+l/C+LQg==}
+  /@rometools/cli-win32-arm64@12.1.3:
+    resolution: {integrity: sha512-RymHWeod57EBOJY4P636CgUwYA6BQdkQjh56XKk4pLEHO6X1bFyMet2XL7KlHw5qOTalzuzf5jJqUs+vf3jdXQ==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rometools/cli-win32-x64@12.1.2:
-    resolution: {integrity: sha512-MKOd02sSnd/Biogh3rIKpLFZzYbDSVvRNAxbFHJOpyGLbeQHfAg7QxjKwz0PqyrHVjZaTEEPlswrf4IFii0GNg==}
+  /@rometools/cli-win32-x64@12.1.3:
+    resolution: {integrity: sha512-yHSKYidqJMV9nADqg78GYA+cZ0hS1twANAjiFibQdXj9aGzD+s/IzIFEIi/U/OBLvWYg/SCw0QVozi2vTlKFDQ==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@tinyhttp/accepts@2.0.9:
-    resolution: {integrity: sha512-zo5ZEgcjKsFf08M0PX2pMR7VtTg2AWlqxBPz1HLv5nzwi9fmhBsnePtPuqtcJ4dORR87ss3AX7szxgTYcTYruA==}
-    engines: {node: '>=12.4.0'}
+  /@tinyhttp/accepts@2.1.0:
+    resolution: {integrity: sha512-6psWseTybtd/9rJRbVa5vWtEMhqoNx+pOgWBRnQJWdDGqBotaqNEbLmxHT7IayNy6FPUvKDdJNzm3BlPsYrXkQ==}
+    engines: {node: '>=12.20.0'}
     dependencies:
       es-mime-types: 0.1.4
       negotiator: 0.6.3
     dev: false
 
-  /@tinyhttp/app@2.0.33:
-    resolution: {integrity: sha512-iOAJ8z0R6hTayXVWdFLe6hS2LVpypH0aHzWFzdv1SvwHWaKM1PyWjiHE3m9dATN+q3SLmLi99tSizNaBAc+Cvw==}
-    engines: {node: '>=12.x'}
+  /@tinyhttp/app@2.1.4:
+    resolution: {integrity: sha512-6GeZBL6Its15FHvaQNOFWmmFB0tPR/ZfZcvbfj6LTSH2SMrLC6aa63mT8G+Z07nTwIGjrJBFf7e4Lh92LwDURg==}
+    engines: {node: '>=14.21.3'}
     dependencies:
-      '@tinyhttp/cookie': 2.0.7
-      '@tinyhttp/proxy-addr': 2.0.8
-      '@tinyhttp/req': 2.0.17
-      '@tinyhttp/res': 2.0.24
-      '@tinyhttp/router': 2.1.1
+      '@tinyhttp/cookie': 2.1.0
+      '@tinyhttp/proxy-addr': 2.1.2
+      '@tinyhttp/req': 2.1.0
+      '@tinyhttp/res': 2.1.0
+      '@tinyhttp/router': 2.2.1
       header-range-parser: 1.1.3
       regexparam: 2.0.1
     dev: false
 
-  /@tinyhttp/content-disposition@2.0.10:
-    resolution: {integrity: sha512-TiJ/a6HX6fBtDwOwKeJFqx23fIn5CCzr7WMZAlxg+8drim/DN45wSRs8VZ4nD4yx/HcIgk7USoUj4+y4S41TFw==}
-    engines: {node: '>=12.4.0'}
+  /@tinyhttp/content-disposition@2.1.0:
+    resolution: {integrity: sha512-ZDtq0g0IaWyzxyljxCMqCP0T5yHdQpNhlFAikboe+ACJfEnbLrZ59qqz4F09N3coCIGZ56j/fDUJQ4iyWL0QIw==}
+    engines: {node: '>=12.20.0'}
     dev: false
 
-  /@tinyhttp/cookie-signature@2.0.7:
-    resolution: {integrity: sha512-a01E3MH28Rk8PxvWAzrDVCwb5I/N70v9W8AEongoX9qYsClOkgMMNMnp66RS+ZEaYcS+mGrUtuGX3x51wFR1LA==}
-    engines: {node: '>=12.4.0'}
+  /@tinyhttp/cookie-signature@2.1.0:
+    resolution: {integrity: sha512-bpOXBGf9rKoajtEG75O7xjwW+u2I/NNPkJWJTDdr6j7Vx0lG5R9Hnl3ty80Af4jwyo90ywXVpZIxKLubPK6RzA==}
+    engines: {node: '>=12.20.0'}
     dev: false
 
-  /@tinyhttp/cookie@2.0.7:
-    resolution: {integrity: sha512-NwhDTt3Hcm7S0iCLCrR7V0FuS9BKBn9LpqKfwtrdR3BZYpw22WX4rIFz/VE81bkQ1+2r6nEvTL/xT5tM3t0Z7Q==}
-    engines: {node: '>=12.4.0'}
+  /@tinyhttp/cookie@2.1.0:
+    resolution: {integrity: sha512-o56utxXvIuLTCtPm66r8lcyUufpw0RkO+u4wQrTbc6snyyGZZ9hHzGRxPyko0ks90ctOkLh0mNKn7YZaTWlvfw==}
+    engines: {node: '>=12.20.0'}
     dev: false
 
-  /@tinyhttp/encode-url@2.0.8:
-    resolution: {integrity: sha512-gJUzIu2lD+CPhXJ8MIh0e/aCa5qCh0J7ph2lb8q66oP55ldNIshS/Egm2OxuYfAMOrfWhZMkVNWn5q6tWUV6Dw==}
-    engines: {node: '>=12.4.0'}
+  /@tinyhttp/encode-url@2.1.0:
+    resolution: {integrity: sha512-POXlTYIPReU5CBnNmJ1oyzPEpG9uI41bWoW5xBWomJkL6hQgArzlmU8i1kr8+JPf3O+MVBaJ5tMTS/09uOULZw==}
+    engines: {node: '>=12.20.0'}
     dev: false
 
-  /@tinyhttp/etag@2.0.7:
-    resolution: {integrity: sha512-JrShRKwHrUmUJvE9oUFF4iHBbF01L/LIy+ADrMY8rejrxdYip5Ua26GaXkE9Ht586BYtXKKtCI37l5f6QZTwgA==}
-    engines: {node: '>=12.4.0'}
+  /@tinyhttp/etag@2.1.0:
+    resolution: {integrity: sha512-zb+SyhwOIaciIzYdoaUWDSJg1asFqRSE8gnDqaUA0nJKg8T1Y1c7Dauzs3QY4VApy2zdbI8gk23XZXOfzL1J0g==}
+    engines: {node: '>=12.20.0'}
     dev: false
 
-  /@tinyhttp/forwarded@2.0.7:
-    resolution: {integrity: sha512-DEO7KmEJk7VL1nc9E1pqp8QlSLoiVgPJqGq3PRxzh82CeXunk2BVm8ep69iIPJjoPf8i5gzv/dU2+Oinik4C9Q==}
-    engines: {node: '>=12.4.0'}
+  /@tinyhttp/forwarded@2.1.1:
+    resolution: {integrity: sha512-nO3kq0R1LRl2+CAMlnggm22zE6sT8gfvGbNvSitV6F9eaUSurHP0A8YZFMihSkugHxK+uIegh1TKrqgD8+lyGQ==}
+    engines: {node: '>=12.20.0'}
     dev: false
 
-  /@tinyhttp/proxy-addr@2.0.8:
-    resolution: {integrity: sha512-34DdZkFMIYiJ92apjoL5RvEYmr1pdcNmhTy7pUtkt/AS78g8rsLXcaGVWsAW1DGKeB1zNkM93PS4t/YVyDrX2Q==}
-    engines: {node: '>=12.4.0'}
+  /@tinyhttp/proxy-addr@2.1.2:
+    resolution: {integrity: sha512-gqb1RRxMVlvoq4Hg2O6pTVkjnb1beonDYpCNz5dLQEWtNf614KfeP6ih35MEzvda0g1fr09lq2Crp9cp1kvRNg==}
+    engines: {node: '>=12.20.0'}
     dependencies:
-      '@tinyhttp/forwarded': 2.0.7
-      ipaddr.js: 2.0.1
+      '@tinyhttp/forwarded': 2.1.1
+      ipaddr.js: 2.1.0
     dev: false
 
-  /@tinyhttp/req@2.0.17:
-    resolution: {integrity: sha512-T5DKCKu3CJfnYBbZ+T6E5/Xu/WNhZypaswFwYSgo0wLu7WSMcTg61iTTkdg2BUugGkaADo8G547XA4AnIVeZ/g==}
-    engines: {node: '>=12.4.0'}
+  /@tinyhttp/req@2.1.0:
+    resolution: {integrity: sha512-Jw7HoYsEJRZltYZs2PhXTjZYM02QcIrTOsWQ9ma0c00uq89JlASYFeI+9OUFoQdHk9m4THCl/fVlT3EBYgb0zg==}
+    engines: {node: '>=12.20.0'}
     dependencies:
-      '@tinyhttp/accepts': 2.0.9
-      '@tinyhttp/type-is': 2.0.8
-      '@tinyhttp/url': 2.0.9
+      '@tinyhttp/accepts': 2.1.0
+      '@tinyhttp/type-is': 2.1.0
+      '@tinyhttp/url': 2.1.0
       es-fresh: 0.0.11
       header-range-parser: 1.1.3
     dev: false
 
-  /@tinyhttp/res@2.0.24:
-    resolution: {integrity: sha512-95lWl/ui6DUZV0MrwUy91MCAUYK/BuIUeCAWP0or3uHuMZBMl8euz6SqxYvBkSncwq+J3exF5cmertfDZ2UOHA==}
-    engines: {node: '>=12.4.0'}
+  /@tinyhttp/res@2.1.0:
+    resolution: {integrity: sha512-ypBViqrOzXli3fBgVkYuP1CEXtOn1fFEdQgBd47+6F9EJ3dw53nwknYOpixMnQz6iDxSSdRS1b3sANGDu65EwA==}
+    engines: {node: '>=12.20.0'}
     dependencies:
-      '@tinyhttp/content-disposition': 2.0.10
-      '@tinyhttp/cookie': 2.0.7
-      '@tinyhttp/cookie-signature': 2.0.7
-      '@tinyhttp/encode-url': 2.0.8
-      '@tinyhttp/req': 2.0.17
-      '@tinyhttp/send': 2.0.9
+      '@tinyhttp/content-disposition': 2.1.0
+      '@tinyhttp/cookie': 2.1.0
+      '@tinyhttp/cookie-signature': 2.1.0
+      '@tinyhttp/encode-url': 2.1.0
+      '@tinyhttp/req': 2.1.0
+      '@tinyhttp/send': 2.1.0
       es-escape-html: 0.1.1
       es-mime-types: 0.1.4
       es-vary: 0.1.2
     dev: false
 
-  /@tinyhttp/router@2.1.1:
-    resolution: {integrity: sha512-x+hNm2e8wKz34ND2m3eGu0dK6hZm8x2GMgdFxy9vdhsn4zPzhyfyFlr/BcT/PJF3P6h2+FTTbLQEmZdDOCDBsQ==}
-    engines: {node: '>=12.4.0'}
+  /@tinyhttp/router@2.2.1:
+    resolution: {integrity: sha512-ssaXDGRfyAG3bTg2iXqma4N54ehVZLsQPD98/fePTJJxMDsirZYFYMvJaxyH7A7ezRrazys1ZyEDPa6tFDtoCQ==}
+    engines: {node: '>=12.20.0'}
     dev: false
 
-  /@tinyhttp/send@2.0.9:
-    resolution: {integrity: sha512-VynroxwF18nKewfC2UPbsdtu/kVNVerxOZNG857txVu2dAwdV/sT5n+6dZKexG9NJ+//xu+LBiKYaQ948eAnFQ==}
-    engines: {node: '>=12.4.0'}
+  /@tinyhttp/send@2.1.0:
+    resolution: {integrity: sha512-oZXG/BJzkiD7UgzjFzBHvYu9chNEE0pTFlWRwprxB/hFi26+7IlAzJijPijOBgbSJZtHZW4oO51wCpU2qtwe5w==}
+    engines: {node: '>=12.20.0'}
     dependencies:
-      '@tinyhttp/etag': 2.0.7
+      '@tinyhttp/etag': 2.1.0
       es-content-type: 0.1.0
       es-mime-types: 0.1.4
     dev: false
 
-  /@tinyhttp/type-is@2.0.8:
-    resolution: {integrity: sha512-tsyHb8d12TFjxUUvtlaZTcIAGHVXPCa7YMsm8KCixv3ExF2VFO5I8Vlbv+udfOBA+FwkK7v04AlVWkEuaEC1QA==}
-    engines: {node: '>=12.4.0'}
+  /@tinyhttp/type-is@2.1.0:
+    resolution: {integrity: sha512-vEDxoti3/0rJWl/EppO3uHvHJmlMHw/Xd+FsSMUEg+6LYhOYTxJQAdgTxmLYGt5Iq/98+WfbMOD8jCiKLpjfyw==}
+    engines: {node: '>=12.20.0'}
     dependencies:
       es-content-type: 0.1.0
       es-mime-types: 0.1.4
     dev: false
 
-  /@tinyhttp/url@2.0.9:
-    resolution: {integrity: sha512-IyItm0GMXkG8fekjfxpoRzuqWiNeudT7eMBwBtxodnNdpn2gxYvIBtMnG/n3wWIRI82Yv1S/2OoskwbDVnwSEw==}
-    engines: {node: '>=12.4.0'}
+  /@tinyhttp/url@2.1.0:
+    resolution: {integrity: sha512-y+VhvhlpFAtIebuqrdwxmg0MpVb0BC5FJ3oWuDWqWkUQNqKAyBnJ2o5pb9AQ05yxX4HQqmxTQonvWAnpnBsiaw==}
+    engines: {node: '>=12.20.0'}
     dev: false
 
   /@types/multiparty@0.0.33:
@@ -485,8 +489,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /dotenv@16.0.3:
-    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+  /dotenv@16.3.1:
+    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
     engines: {node: '>=12'}
     dev: false
 
@@ -583,8 +587,8 @@ packages:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
     dev: false
 
-  /ipaddr.js@2.0.1:
-    resolution: {integrity: sha512-1qTgH9NG+IIJ4yfKs2e6Pp1bZg8wbDbKHT21HrLIeYBTRLgMYKnMTPAuI3Lcs61nfx5h1xlXnbJtH1kX5/d/ng==}
+  /ipaddr.js@2.1.0:
+    resolution: {integrity: sha512-LlbxQ7xKzfBusov6UMi4MFpEg0m+mAm9xyNGEduwXMEDuf4WfzB/RZwMVYEd7IKGvh4IUkEXYxtAVu9T3OelJQ==}
     engines: {node: '>= 10'}
     dev: false
 
@@ -622,18 +626,18 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /rome@12.1.2:
-    resolution: {integrity: sha512-ObyDevKRU6k3R9fAK9hDvrX9FSPEJ0JWNv5i65enknV+epWjEIL0jnDuijPUX7MSVS6M/ngTiKUaeF3w63SJXw==}
+  /rome@12.1.3:
+    resolution: {integrity: sha512-e+ff72hxDpe/t5/Us7YRBVw3PBET7SeczTQNn6tvrWdrCaAw3qOukQQ+tDCkyFtS4yGsnhjrJbm43ctNbz27Yg==}
     engines: {node: '>=14.*'}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      '@rometools/cli-darwin-arm64': 12.1.2
-      '@rometools/cli-darwin-x64': 12.1.2
-      '@rometools/cli-linux-arm64': 12.1.2
-      '@rometools/cli-linux-x64': 12.1.2
-      '@rometools/cli-win32-arm64': 12.1.2
-      '@rometools/cli-win32-x64': 12.1.2
+      '@rometools/cli-darwin-arm64': 12.1.3
+      '@rometools/cli-darwin-x64': 12.1.3
+      '@rometools/cli-linux-arm64': 12.1.3
+      '@rometools/cli-linux-x64': 12.1.3
+      '@rometools/cli-win32-arm64': 12.1.3
+      '@rometools/cli-win32-x64': 12.1.3
     dev: true
 
   /safe-buffer@5.2.1:
@@ -677,9 +681,9 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /typescript@5.0.4:
-    resolution: {integrity: sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==}
-    engines: {node: '>=12.20'}
+  /typescript@5.1.6:
+    resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
+    engines: {node: '>=14.17'}
     hasBin: true
     dev: false
 

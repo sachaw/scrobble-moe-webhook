@@ -1,9 +1,9 @@
+import { WebhookService } from "@buf/scrobble-moe_protobufs.bufbuild_connect-es/moe/scrobble/webhook/v1/webhook_service_connect.js";
+import { createPromiseClient } from "@bufbuild/connect";
+import { createConnectTransport } from "@bufbuild/connect-node";
+import { App } from "@tinyhttp/app";
 import { config } from "dotenv";
 import multiparty from "multiparty";
-import { App } from "@tinyhttp/app";
-import { createConnectTransport } from "@bufbuild/connect-node";
-import { createPromiseClient } from "@bufbuild/connect";
-import { WebhookService } from "@buf/scrobble-moe_protobufs.bufbuild_connect-es/moe/scrobble/webhook/v1/webhook_service_connect.js";
 
 import { PlexWebhook } from "./types/webhook.js";
 
@@ -39,7 +39,7 @@ void app
             secret,
             username: payload.Account.title,
             serverUuid: payload.Server.uuid,
-            providerMediaId: parseInt(providerMediaId),
+            providerMediaId,
             episode: payload.Metadata.index,
           });
         }
