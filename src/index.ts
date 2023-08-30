@@ -2,6 +2,7 @@ import { WebhookService } from "@buf/scrobble-moe_protobufs.bufbuild_connect-es/
 import { createPromiseClient } from "@bufbuild/connect";
 import { createConnectTransport } from "@bufbuild/connect-node";
 import { App } from "@tinyhttp/app";
+import { logger } from "@tinyhttp/logger";
 import { config } from "dotenv";
 import multiparty from "multiparty";
 
@@ -9,15 +10,24 @@ import { PlexWebhook } from "./types/webhook.js";
 
 config();
 
+if (!process.env.RPC_URL) {
+  throw new Error("RPC_URL is not set");
+}
+if (!process.env.PORT) {
+  throw new Error("PORT is not set");
+}
+
 const transport = createConnectTransport({
-  httpVersion: "2",
-  baseUrl: process.env.RPC_URL ?? "localhost:4000",
+  baseUrl: new URL(process.env.RPC_URL).toString(),
+  useBinaryFormat: true,
+  httpVersion: "1.1",
 });
 const client = createPromiseClient(WebhookService, transport);
 
 const app = new App();
 
 void app
+  .use(logger())
   .post("/:secret", async (req, res) => {
     const { secret } = req.params;
 
@@ -35,13 +45,15 @@ void app
         const providerMediaId = match?.groups?.id ?? "";
 
         if (payload.event === "media.scrobble" && providerMediaId) {
-          await client.scrobble({
-            secret,
-            username: payload.Account.title,
-            serverUuid: payload.Server.uuid,
-            providerMediaId,
-            episode: payload.Metadata.index,
-          });
+          await client
+            .scrobble({
+              secret,
+              username: payload.Account.title,
+              serverUuid: payload.Server.uuid,
+              providerMediaId,
+              episode: payload.Metadata.index,
+            })
+            .catch((e: Error) => console.error(e));
         }
       }
     });
@@ -51,6 +63,6 @@ void app
   .get("/", (_, res) => {
     res.sendStatus(200);
   })
-  .listen(parseInt(process.env.PORT ?? "5000"), () =>
-    console.log("🚀 Server ready"),
+  .listen(parseInt(process.env.PORT), () =>
+    console.log(`🚀 Server ready, listening on port ${process.env.port}`),
   );
