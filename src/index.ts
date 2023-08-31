@@ -64,5 +64,5 @@ void app
     res.sendStatus(200);
   })
   .listen(parseInt(process.env.PORT), () =>
-    console.log(`🚀 Server ready, listening on port ${process.env.port}`),
+    console.log(`🚀 Server ready, listening on port ${process.env.PORT}`),
   );
