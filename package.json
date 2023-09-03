@@ -10,7 +10,7 @@
     "dev": "tsx watch src/index.ts"
   },
   "dependencies": {
-    "@buf/scrobble-moe_protobufs.bufbuild_connect-es": "0.13.0-20230829005047-d826fef5b132.1",
+    "@buf/scrobble-moe_protobufs.bufbuild_connect-es": "0.13.0-20230903134257-49437e662f7e.1",
     "@bufbuild/connect": "^0.13.0",
     "@bufbuild/connect-node": "^0.13.0",
     "@bufbuild/protobuf": "^1.3.1",
@@ -25,6 +25,6 @@
   },
   "devDependencies": {
     "rome": "^12.1.3",
-    "tsx": "^3.12.7"
+    "tsx": "^3.12.8"
   }
 }
