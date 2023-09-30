@@ -18,14 +18,14 @@ dependencies:
     specifier: ^1.3.1
     version: 1.3.1
   '@tinyhttp/app':
-    specifier: ^2.1.4
-    version: 2.1.4
+    specifier: ^2.2.0
+    version: 2.2.0
   '@tinyhttp/logger':
     specifier: ^1.3.4
     version: 1.3.4
   '@types/multiparty':
-    specifier: ^0.0.33
-    version: 0.0.33
+    specifier: ^0.0.34
+    version: 0.0.34
   dotenv:
     specifier: ^16.3.1
     version: 16.3.1
@@ -47,8 +47,8 @@ devDependencies:
     specifier: ^12.1.3
     version: 12.1.3
   tsx:
-    specifier: ^3.12.8
-    version: 3.12.8
+    specifier: ^3.13.0
+    version: 3.13.0
 
 packages:
 
@@ -93,27 +93,6 @@ packages:
   /@bufbuild/protobuf@1.3.1:
     resolution: {integrity: sha512-BUyJWutgP2S8K/1NphOJokuwDckXS4qI2T1pGZAlkFdZchWae3jm6fCdkcGbLlM1QLOcNFFePd+7Feo4BYGrJQ==}
     dev: false
-
-  /@esbuild-kit/cjs-loader@2.4.2:
-    resolution: {integrity: sha512-BDXFbYOJzT/NBEtp71cvsrGPwGAMGRB/349rwKuoxNSiKjPraNNnlK6MIIabViCjqZugu6j+xeMDlEkWdHHJSg==}
-    dependencies:
-      '@esbuild-kit/core-utils': 3.2.2
-      get-tsconfig: 4.7.0
-    dev: true
-
-  /@esbuild-kit/core-utils@3.2.2:
-    resolution: {integrity: sha512-Ub6LaRaAgF80dTSzUdXpFLM1pVDdmEVB9qb5iAzSpyDlX/mfJTFGOnZ516O05p5uWWteNviMKi4PAyEuRxI5gA==}
-    dependencies:
-      esbuild: 0.18.20
-      source-map-support: 0.5.21
-    dev: true
-
-  /@esbuild-kit/esm-loader@2.5.5:
-    resolution: {integrity: sha512-Qwfvj/qoPbClxCRNuac1Du01r9gvNOT+pMYtJDapfB1eoGN1YlJ1BixLyL9WVENRx5RXgNLdfYdx/CuswlGhMw==}
-    dependencies:
-      '@esbuild-kit/core-utils': 3.2.2
-      get-tsconfig: 4.7.0
-    dev: true
 
   /@esbuild/android-arm64@0.18.20:
     resolution: {integrity: sha512-Nz4rJcchGDtENV0eMKUNa6L12zz2zBDXuhj/Vjh18zGqB44Bi7MBMSXjgunJgjRhCmKOjnPuZp4Mb6OKqtMHLQ==}
@@ -361,30 +340,35 @@ packages:
     dev: true
     optional: true
 
-  /@tinyhttp/accepts@2.1.0:
-    resolution: {integrity: sha512-6psWseTybtd/9rJRbVa5vWtEMhqoNx+pOgWBRnQJWdDGqBotaqNEbLmxHT7IayNy6FPUvKDdJNzm3BlPsYrXkQ==}
+  /@tinyhttp/accepts@2.2.0:
+    resolution: {integrity: sha512-Jz60vPt9eQDXtFNaTHGhVsFNEFoQxHldGhB0a6L1oS4MvGJNs6pX5Ibntgth2/DcdtR+PFtbOhKVsZf8kveDLw==}
     engines: {node: '>=12.20.0'}
     dependencies:
-      es-mime-types: 0.1.4
+      mime: 4.0.0-beta.1
       negotiator: 0.6.3
     dev: false
 
-  /@tinyhttp/app@2.1.4:
-    resolution: {integrity: sha512-6GeZBL6Its15FHvaQNOFWmmFB0tPR/ZfZcvbfj6LTSH2SMrLC6aa63mT8G+Z07nTwIGjrJBFf7e4Lh92LwDURg==}
+  /@tinyhttp/app@2.2.0:
+    resolution: {integrity: sha512-brR9Gucbh6Nu0cO56ig5jDl/jUMey3UKFSD6hu6TEwQY5sROk8sLI5bYKOuVZT1LMwk/OzX++Wa0mlk2AxRVYA==}
     engines: {node: '>=14.21.3'}
     dependencies:
       '@tinyhttp/cookie': 2.1.0
       '@tinyhttp/proxy-addr': 2.1.2
-      '@tinyhttp/req': 2.1.0
-      '@tinyhttp/res': 2.1.0
+      '@tinyhttp/req': 2.2.0
+      '@tinyhttp/res': 2.2.0
       '@tinyhttp/router': 2.2.1
       header-range-parser: 1.1.3
       regexparam: 2.0.1
     dev: false
 
-  /@tinyhttp/content-disposition@2.1.0:
-    resolution: {integrity: sha512-ZDtq0g0IaWyzxyljxCMqCP0T5yHdQpNhlFAikboe+ACJfEnbLrZ59qqz4F09N3coCIGZ56j/fDUJQ4iyWL0QIw==}
+  /@tinyhttp/content-disposition@2.2.0:
+    resolution: {integrity: sha512-w1dJaSAtcCinOlT/YQg35RnFCOBbCHBGDVhH4yLoiJVtecRAJ2cYMf5HP+UhfbXURa38GC8fkRXO0vODDTjmeg==}
     engines: {node: '>=12.20.0'}
+    dev: false
+
+  /@tinyhttp/content-type@0.1.4:
+    resolution: {integrity: sha512-dl6f3SHIJPYbhsW1oXdrqOmLSQF/Ctlv3JnNfXAE22kIP7FosqJHxkz/qj2gv465prG8ODKH5KEyhBkvwrueKQ==}
+    engines: {node: '>=12.4'}
     dev: false
 
   /@tinyhttp/cookie-signature@2.1.0:
@@ -429,30 +413,29 @@ packages:
       ipaddr.js: 2.1.0
     dev: false
 
-  /@tinyhttp/req@2.1.0:
-    resolution: {integrity: sha512-Jw7HoYsEJRZltYZs2PhXTjZYM02QcIrTOsWQ9ma0c00uq89JlASYFeI+9OUFoQdHk9m4THCl/fVlT3EBYgb0zg==}
+  /@tinyhttp/req@2.2.0:
+    resolution: {integrity: sha512-Q8qBOdg4YXq299cK9y1EtJ4XDDLtBTvaO7IwE/xZuTwUfEscNeMf/w5FFYXtqhlZnQS+dxGeTv/dlcowBU3hFA==}
     engines: {node: '>=12.20.0'}
     dependencies:
-      '@tinyhttp/accepts': 2.1.0
-      '@tinyhttp/type-is': 2.1.0
+      '@tinyhttp/accepts': 2.2.0
+      '@tinyhttp/type-is': 2.2.0
       '@tinyhttp/url': 2.1.0
-      es-fresh: 0.0.11
       header-range-parser: 1.1.3
     dev: false
 
-  /@tinyhttp/res@2.1.0:
-    resolution: {integrity: sha512-ypBViqrOzXli3fBgVkYuP1CEXtOn1fFEdQgBd47+6F9EJ3dw53nwknYOpixMnQz6iDxSSdRS1b3sANGDu65EwA==}
+  /@tinyhttp/res@2.2.0:
+    resolution: {integrity: sha512-kdZn6cOdlIlZYLj6sXgB+TRppkf/3Lfc/t1DdIy70COb3+CXN8KQvKgtjDirUBjRuMyKv141UtY6edfrt+BqMQ==}
     engines: {node: '>=12.20.0'}
     dependencies:
-      '@tinyhttp/content-disposition': 2.1.0
+      '@tinyhttp/content-disposition': 2.2.0
       '@tinyhttp/cookie': 2.1.0
       '@tinyhttp/cookie-signature': 2.1.0
       '@tinyhttp/encode-url': 2.1.0
-      '@tinyhttp/req': 2.1.0
-      '@tinyhttp/send': 2.1.0
+      '@tinyhttp/req': 2.2.0
+      '@tinyhttp/send': 2.2.0
+      '@tinyhttp/vary': 0.1.3
       es-escape-html: 0.1.1
-      es-mime-types: 0.1.4
-      es-vary: 0.1.2
+      mime: 4.0.0-beta.1
     dev: false
 
   /@tinyhttp/router@2.2.1:
@@ -460,21 +443,21 @@ packages:
     engines: {node: '>=12.20.0'}
     dev: false
 
-  /@tinyhttp/send@2.1.0:
-    resolution: {integrity: sha512-oZXG/BJzkiD7UgzjFzBHvYu9chNEE0pTFlWRwprxB/hFi26+7IlAzJijPijOBgbSJZtHZW4oO51wCpU2qtwe5w==}
+  /@tinyhttp/send@2.2.0:
+    resolution: {integrity: sha512-MyWrmsdBci9p8JrSSqd0XuHoxtKfUZNbLQXGMVxf+BmZtcZW4TJV95FjTLnnZPLZ2+r30WpokYSYDiyK48U+Ag==}
     engines: {node: '>=12.20.0'}
     dependencies:
+      '@tinyhttp/content-type': 0.1.4
       '@tinyhttp/etag': 2.1.0
-      es-content-type: 0.1.0
-      es-mime-types: 0.1.4
+      mime: 4.0.0-beta.1
     dev: false
 
-  /@tinyhttp/type-is@2.1.0:
-    resolution: {integrity: sha512-vEDxoti3/0rJWl/EppO3uHvHJmlMHw/Xd+FsSMUEg+6LYhOYTxJQAdgTxmLYGt5Iq/98+WfbMOD8jCiKLpjfyw==}
+  /@tinyhttp/type-is@2.2.0:
+    resolution: {integrity: sha512-BtnndSlJ5mv2AUu6D3sweI39xVPSS/+9BaoXWSjCrNsN/fgAEaNZOOaIh+sUU3r0U99y0DQo9LEIwNaIO5nOig==}
     engines: {node: '>=12.20.0'}
     dependencies:
-      es-content-type: 0.1.0
-      es-mime-types: 0.1.4
+      '@tinyhttp/content-type': 0.1.4
+      mime: 4.0.0-beta.1
     dev: false
 
   /@tinyhttp/url@2.1.0:
@@ -482,14 +465,23 @@ packages:
     engines: {node: '>=12.20.0'}
     dev: false
 
-  /@types/multiparty@0.0.33:
-    resolution: {integrity: sha512-Il6cJUpSqgojT7NxbVJUvXkCblm50/yEJYtblISDsNIeNYf4yMAhdizzidUk6h8pJ8yhwK/3Fkb+3Dwcgtwl8w==}
+  /@tinyhttp/vary@0.1.3:
+    resolution: {integrity: sha512-SoL83sQXAGiHN1jm2VwLUWQSQeDAAl1ywOm6T0b0Cg1CZhVsjoiZadmjhxF6FHCCY7OHHVaLnTgSMxTPIDLxMg==}
+    engines: {node: '>=12.20'}
+    dev: false
+
+  /@types/multiparty@0.0.34:
+    resolution: {integrity: sha512-tURhLB1wrxGUbULtIVsecuCgyLOXQr+nacysa7fpYUvCwn61VDEkxgusq7gaFmYCMuTYz+n+hTiI6zH4ytAwJw==}
     dependencies:
-      '@types/node': 20.5.9
+      '@types/node': 20.8.0
     dev: false
 
   /@types/node@20.5.9:
     resolution: {integrity: sha512-PcGNd//40kHAS3sTlzKB9C9XL4K0sTup8nbG5lC14kzEteTNuAFh9u5nA0o5TWnSG2r/JNPRXFVcHJIIeRlmqQ==}
+    dev: false
+
+  /@types/node@20.8.0:
+    resolution: {integrity: sha512-LzcWltT83s1bthcvjBmiBvGJiiUe84NWRHkw+ZV6Fr41z2FbIzvc815dk2nQ3RAKMuN2fkenM/z3Xv2QzEpYxQ==}
     dev: false
 
   /@types/set-cookie-parser@2.4.3:
@@ -520,30 +512,8 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /es-content-type@0.1.0:
-    resolution: {integrity: sha512-DqWU9pSzhNlO10q+NQ/KebImLkKbwbcy0pSv3hNQfEpKFHsrqDJz2vajpZdq7nkiG9DoJcTh22oHGymp7XJd9g==}
-    engines: {node: '>=12.x'}
-    dev: false
-
   /es-escape-html@0.1.1:
     resolution: {integrity: sha512-yUx1o+8RsG7UlszmYPtks+dm6Lho2m8lgHMOsLJQsFI0R8XwUJwiMhM1M4E/S8QLeGyf6MkDV/pWgjQ0tdTSyQ==}
-    engines: {node: '>=12.x'}
-    dev: false
-
-  /es-fresh@0.0.11:
-    resolution: {integrity: sha512-pMAgUE0jSWkCf4ua/gcweHdubuAS/wi3paHoBAPRwxfCK/R13oXq53yyN9XHewe0eIVqNlSN7FunxXySX2Q46Q==}
-    engines: {node: '>=12.x'}
-    dev: false
-
-  /es-mime-types@0.1.4:
-    resolution: {integrity: sha512-rUrmfrUIHU/4ykYB+YH80LDiSpmn6sE/A9E8EsFZP4LCtf/PH+ju6d6goFJ8fsGf81pRtQn1cJSmp8JGA9YkfQ==}
-    engines: {node: '>=12.x'}
-    dependencies:
-      mime-db: 1.52.0
-    dev: false
-
-  /es-vary@0.1.2:
-    resolution: {integrity: sha512-pLqqZoOutAXQXyBJrUYVNM5fZngiOJYi1Xl4svQMrluTsqDUOQlBMw9EYgLrsWL6niDYn/Yd1y2Pj6GC+j/yjA==}
     engines: {node: '>=12.x'}
     dev: false
 
@@ -585,8 +555,8 @@ packages:
     dev: true
     optional: true
 
-  /get-tsconfig@4.7.0:
-    resolution: {integrity: sha512-pmjiZ7xtB8URYm74PlGJozDNyhvsVLUcpBa8DZBG3bWHwaHa9bPiRpiSfovw+fjhwONSCWKRyk+JQHEGZmMrzw==}
+  /get-tsconfig@4.7.2:
+    resolution: {integrity: sha512-wuMsz4leaj5hbGgg4IvDU0bqJagpftG5l5cXIAvo8uZrqn0NJqwtfupTN00VnkQJPcIRrxYrm1Ue24btpCha2A==}
     dependencies:
       resolve-pkg-maps: 1.0.0
     dev: true
@@ -632,9 +602,10 @@ packages:
     engines: {node: '>=12.4'}
     dev: false
 
-  /mime-db@1.52.0:
-    resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
-    engines: {node: '>= 0.6'}
+  /mime@4.0.0-beta.1:
+    resolution: {integrity: sha512-8/p99P1RV17prytee/A6D+8shNqdDzyvGJ/CVfiuXwh4cTsv3P3qGyaYSx2hdqnqbKKqYUfTC5zAjCtcd1BShw==}
+    engines: {node: '>=16'}
+    hasBin: true
     dev: false
 
   /multiparty@4.2.3:
@@ -713,13 +684,13 @@ packages:
     engines: {node: '>=0.6'}
     dev: false
 
-  /tsx@3.12.8:
-    resolution: {integrity: sha512-Lt9KYaRGF023tlLInPj8rgHwsZU8qWLBj4iRXNWxTfjIkU7canGL806AqKear1j722plHuiYNcL2ZCo6uS9UJA==}
+  /tsx@3.13.0:
+    resolution: {integrity: sha512-rjmRpTu3as/5fjNq/kOkOtihgLxuIz6pbKdj9xwP4J5jOLkBxw/rjN5ANw+KyrrOXV5uB7HC8+SrrSJxT65y+A==}
     hasBin: true
     dependencies:
-      '@esbuild-kit/cjs-loader': 2.4.2
-      '@esbuild-kit/core-utils': 3.2.2
-      '@esbuild-kit/esm-loader': 2.5.5
+      esbuild: 0.18.20
+      get-tsconfig: 4.7.2
+      source-map-support: 0.5.21
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
