@@ -6,7 +6,7 @@ import { logger } from "@tinyhttp/logger";
 import { config } from "dotenv";
 import multiparty from "multiparty";
 
-import { PlexWebhook } from "./types/webhook.js";
+import type { PlexWebhook } from "./types/index.js";
 
 config();
 
@@ -26,14 +26,14 @@ const client = createPromiseClient(WebhookService, transport);
 
 const app = new App();
 
-void app
+app
   .use(logger())
   .post("/:secret", async (req, res) => {
     const { secret } = req.params;
 
     const form = new multiparty.Form();
 
-    form.parse(req, async (err, fields) => {
+    form.parse(req, async (_, fields) => {
       if (fields.payload) {
         const payload: PlexWebhook = JSON.parse(fields.payload);
         if (!payload.Metadata) {
@@ -63,6 +63,4 @@ void app
   .get("/", (_, res) => {
     res.sendStatus(200);
   })
-  .listen(parseInt(process.env.PORT), () =>
-    console.log(`🚀 Server ready, listening on port ${process.env.PORT}`),
-  );
+  .listen(Number.parseInt(process.env.PORT));
