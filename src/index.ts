@@ -1,66 +1,79 @@
-import { WebhookService } from "@buf/scrobble-moe_protobufs.bufbuild_connect-es/moe/scrobble/webhook/v1/webhook_service_connect.js";
-import { createPromiseClient } from "@bufbuild/connect";
-import { createConnectTransport } from "@bufbuild/connect-node";
-import { App } from "@tinyhttp/app";
-import { logger } from "@tinyhttp/logger";
-import { config } from "dotenv";
-import multiparty from "multiparty";
+import { cyan } from "@std/fmt/colors";
+import { connect } from "@nats-io/transport-deno";
+import { create, toBinary } from "@bufbuild/protobuf";
+import { Webhook } from "@scrobble-moe/protobufs";
+import type { PlexWebhook } from "./webhook.ts";
 
-import type { PlexWebhook } from "./types/index.js";
+const NATS_URL = Deno.env.get("NATS_URL") || "nats://localhost:4222";
+const ROUTE = new URLPattern({ pathname: "/:secret/:platform" });
 
-config();
-
-if (!process.env.RPC_URL) {
-  throw new Error("RPC_URL is not set");
-}
-if (!process.env.PORT) {
-  throw new Error("PORT is not set");
-}
-
-const transport = createConnectTransport({
-  baseUrl: new URL(process.env.RPC_URL).toString(),
-  useBinaryFormat: true,
-  httpVersion: "1.1",
+export const natsConnection = await connect({
+  servers: [NATS_URL],
+}).then((conn) => {
+  console.log(
+    `Connected to NATS ${cyan(conn.info?.server_id ?? "UNK")} as client ${
+      cyan(conn.info?.client_id.toString() ?? "UNK")
+    }`,
+  );
+  return conn;
 });
-const client = createPromiseClient(WebhookService, transport);
 
-const app = new App();
+async function fetch(req: Request): Promise<Response> {
+  const match = ROUTE.exec(req.url);
+  const { platform, secret } = match?.pathname.groups ?? {};
+  if (platform && secret) {
+    const formdata = await req.formData();
 
-app
-  .use(logger())
-  .post("/:secret", async (req, res) => {
-    const { secret } = req.params;
-
-    const form = new multiparty.Form();
-
-    form.parse(req, async (_, fields) => {
-      if (fields.payload) {
-        const payload: PlexWebhook = JSON.parse(fields.payload);
-        if (!payload.Metadata) {
-          return;
+    switch (platform) {
+      case "plex": {
+        const rawPayload = formdata.get("payload");
+        if (!rawPayload) {
+          return new Response("Payload not found", {
+            status: 400,
+          });
         }
-        const match = payload.Metadata.guid?.match(
+        const payload = JSON.parse(rawPayload.toString()) as PlexWebhook;
+
+        const match = payload.Metadata?.guid?.match(
           /me\.sachaw\.agents\.anilist:\/\/(?<id>.*)\/[0-9]\//,
         );
+
         const providerMediaId = match?.groups?.id ?? "";
 
-        if (payload.event === "media.scrobble" && providerMediaId) {
-          await client
-            .scrobble({
-              secret,
-              username: payload.Account.title,
-              serverUuid: payload.Server.uuid,
-              providerMediaId,
-              episode: payload.Metadata.index,
-            })
-            .catch((e: Error) => console.error(e));
-        }
-      }
-    });
+        if (
+          payload.event === "media.scrobble" && providerMediaId &&
+          payload.Metadata?.index
+        ) {
+          const message = create(Webhook.WebhookPayloadSchema, {
+            secret,
+            username: payload.Account.title,
+            serverUuid: payload.Server.uuid,
+            providerMediaId,
+            episode: payload.Metadata.index,
+            streamingProvider: Webhook.WebhookPayload_StreamingProvider.PLEX,
+          });
 
-    res.sendStatus(200);
-  })
-  .get("/", (_, res) => {
-    res.sendStatus(200);
-  })
-  .listen(Number.parseInt(process.env.PORT));
+          await natsConnection.request(
+            "moe.scrobble.webhook",
+            toBinary(Webhook.WebhookPayloadSchema, message),
+          );
+
+          console.log(
+            `Got scrobble event for ${providerMediaId} from ${payload.Account.title} on ${payload.Server.title}`,
+          );
+        }
+
+        break;
+      }
+      case "jellyfin": {
+        break;
+      }
+    }
+
+    return new Response("OK");
+  }
+  return new Response("Server not found", {
+    status: 404,
+  });
+}
+export default { fetch };

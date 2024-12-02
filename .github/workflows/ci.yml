@@ -2,39 +2,46 @@ name: CI
 
 on: push
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
-  quality:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Biome
-        uses: biomejs/setup-biome@v1
-        with:
-          version: latest
-
-      - name: Run Biome
-        run: biome ci .
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - run: deno fmt --check
+
+  publish:
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v2
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Buildah Build
+        id: build-container
+        uses: redhat-actions/buildah-build@v2
         with:
-          version: latest
+          containerfiles: |
+            ./Containerfile
+          image: ${{github.event.repository.full_name}}
+          tags: latest ${{ github.sha }}
+          oci: true
+          platforms: linux/amd64, linux/arm64
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Push To Registry
+        id: push-to-registry
+        uses: redhat-actions/push-to-registry@v2
         with:
-          node-version: 'latest'
-
-      - name: Install Dependencies
-        run: pnpm install
-
-      - name: Build Package
-        run: pnpm build
+          image: ${{ steps.build-container.outputs.image }}
+          tags: ${{ steps.build-container.outputs.tags }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
