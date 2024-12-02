@@ -38,7 +38,7 @@ async function fetch(req: Request): Promise<Response> {
           /me\.sachaw\.agents\.anilist:\/\/(?<id>.*)\/[0-9]\//,
         );
 
-        const providerMediaId = match?.groups?.id ?? "";
+        const providerMediaId = Number.parseInt(match?.groups?.id ?? "");
 
         if (
           payload.event === "media.scrobble" && providerMediaId &&
