@@ -7,6 +7,4 @@ COPY src ./src
 
 RUN ["deno", "cache", "src/index.ts"]
 
-RUN mkdir ./plugins
-
 CMD ["task", "start"]
