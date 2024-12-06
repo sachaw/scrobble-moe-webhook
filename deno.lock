@@ -1,10 +1,10 @@
 {
   "version": "4",
   "specifiers": {
-    "jsr:@nats-io/nats-core@~3.0.0-45": "3.0.0-45",
-    "jsr:@nats-io/nkeys@~2.0.0-2": "2.0.0-3",
+    "jsr:@nats-io/nats-core@~3.0.0-47": "3.0.0-47",
+    "jsr:@nats-io/nkeys@~2.0.0-3": "2.0.0-4",
     "jsr:@nats-io/nuid@2.0.1-2": "2.0.1-2",
-    "jsr:@nats-io/transport-deno@^3.0.0-18": "3.0.0-18",
+    "jsr:@nats-io/transport-deno@^3.0.0-19": "3.0.0-19",
     "jsr:@scrobble-moe/protobufs@~0.1.1": "0.1.2",
     "jsr:@std/bytes@^1.0.2": "1.0.4",
     "jsr:@std/fmt@^1.0.3": "1.0.3",
@@ -13,15 +13,15 @@
     "npm:tweetnacl@1.0.3": "1.0.3"
   },
   "jsr": {
-    "@nats-io/nats-core@3.0.0-45": {
-      "integrity": "a84bde6ccf1c2620cdff3d855f6823176859813e731c9257870309709b4bbd8a",
+    "@nats-io/nats-core@3.0.0-47": {
+      "integrity": "ed0f2ba9f437f88f622044a8de67c984b74fa87ebfc681ea8cf5a87361fbcc5a",
       "dependencies": [
         "jsr:@nats-io/nkeys",
         "jsr:@nats-io/nuid"
       ]
     },
-    "@nats-io/nkeys@2.0.0-3": {
-      "integrity": "5f5eb02ebbd259d88e922392cb547157d16bb1e3283cebd2d18b23ce1d070fe8",
+    "@nats-io/nkeys@2.0.0-4": {
+      "integrity": "8801960325e7a3544a24d676bb3b8dbb0a389e9d593594a91a0818a88dbe6c9d",
       "dependencies": [
         "npm:tweetnacl"
       ]
@@ -29,8 +29,8 @@
     "@nats-io/nuid@2.0.1-2": {
       "integrity": "0cf115cfbc5e93c81464696e1c2cf3fdcd43d8aa23ba7446067d8e91029d39b8"
     },
-    "@nats-io/transport-deno@3.0.0-18": {
-      "integrity": "b3b93b55d31ff34f501dc64f193b997ecd40acadbf654a2b12396b5e808227d6",
+    "@nats-io/transport-deno@3.0.0-19": {
+      "integrity": "d480aec2561ec26d7ad6040d39c0e96781d7def5f787e5ef6abb01b0c7af614b",
       "dependencies": [
         "jsr:@nats-io/nats-core",
         "jsr:@std/io"
@@ -71,8 +71,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@nats-io/nats-core@3.0.0-45",
-      "jsr:@nats-io/transport-deno@^3.0.0-18",
+      "jsr:@nats-io/transport-deno@^3.0.0-19",
       "jsr:@scrobble-moe/protobufs@~0.1.1",
       "jsr:@std/fmt@^1.0.3",
       "npm:@bufbuild/protobuf@^2.2.2"

@@ -1,8 +1,7 @@
 {
   "imports": {
     "@bufbuild/protobuf": "npm:@bufbuild/protobuf@^2.2.2",
-    "@nats-io/nats-core": "jsr:@nats-io/nats-core@3.0.0-45",
-    "@nats-io/transport-deno": "jsr:@nats-io/transport-deno@^3.0.0-18",
+    "@nats-io/transport-deno": "jsr:@nats-io/transport-deno@^3.0.0-19",
     "@scrobble-moe/protobufs": "jsr:@scrobble-moe/protobufs@^0.1.1",
     "@std/fmt": "jsr:@std/fmt@^1.0.3"
   },
