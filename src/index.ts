@@ -35,7 +35,7 @@ async function fetch(req: Request): Promise<Response> {
         const payload = JSON.parse(rawPayload.toString()) as PlexWebhook;
 
         const match = payload.Metadata?.guid?.match(
-          /me\.sachaw\.agents\.anilist:\/\/(?<id>.*)\/[0-9]\//,
+          /me\.sachaw\.agents\.anilist:\/\/(?<id>[0-9]*)\/[0-9]\//,
         );
 
         const providerMediaId = Number.parseInt(match?.groups?.id ?? "");

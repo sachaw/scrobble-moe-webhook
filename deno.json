@@ -7,6 +7,6 @@
     "@std/fmt": "jsr:@std/fmt@^1.0.3"
   },
   "tasks": {
-    "start": "deno run --allow-env --allow-net src/index.ts"
+    "start": "deno serve --allow-env --allow-net src/index.ts"
   }
 }
